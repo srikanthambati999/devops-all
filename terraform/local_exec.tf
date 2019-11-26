@@ -8,8 +8,8 @@ terraform {
 provider "aws" {
   version = "~> 2.0"
   region     = "us-east-1"
-  access_key = "AKIAZDHBYI2YQNHTZKAJ"
-  secret_key = "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"
+  access_key = "AKIAZDHBYI2YT2JARYWH"
+  secret_key = "j2HRCANXqOSWYdtVWWJ8A9AjYmAd36pInF8rqlaA5"
 }
 
 resource "aws_instance" "backend" {
