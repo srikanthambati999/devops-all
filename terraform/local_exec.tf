@@ -7,13 +7,13 @@ terraform {
 
 provider "aws" {
   version = "~> 2.0"
-  region     = "ap-south-1"
+  region     = "us-east-1"
   access_key = "AKIAZDHBYI2YQNHTZKAJ"
   secret_key = "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"
 }
 
 resource "aws_instance" "backend" {
-  ami                    = "ami-0123b531fc646552f"
+  ami                    = "ami-04763b3055de4860b"
   instance_type          = "t2.micro"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${var.sg-id}"]
