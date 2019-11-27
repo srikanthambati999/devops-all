@@ -22,7 +22,7 @@ resource "aws_instance" "backend" {
 
 resource "null_resource" "remote-exec-1" {
     connection {
-    user        = "ubuntu"
+    user        = "ec2-user"
     type        = "ssh"
     private_key = "${file(var.pvt_key)}"
     host        = "${aws_instance.backend.public_ip}"
@@ -44,7 +44,7 @@ provisioner "local-exec" {
         echo "[jenkins-ci]"| tee -a jenkins-ci.ini;
         export ANSIBLE_HOST_KEY_CHECKING=False;
         echo "${aws_instance.backend.public_ip}" | tee -a jenkins-ci.ini;
-        ansible-playbook -e  sshKey=${var.pvt_key} -i jenkins-ci.ini ./ansible/setup-backend.yaml -u ubuntu -v
+        ansible-playbook -e  sshKey=${var.pvt_key} -i jenkins-ci.ini ./ansible/setup-backend.yaml -u ec2-user -v
     EOT
 }
 }
