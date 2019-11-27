@@ -13,7 +13,7 @@ provider "aws" {
   }
 
 resource "aws_instance" "backend" {
-  ami                    = "ami-00068cd7555f543d5"
+  ami                    = "ami-04763b3055de4860b"
   instance_type          = "t2.micro"
   key_name               = "${var.key_name}"
   
@@ -22,7 +22,7 @@ resource "aws_instance" "backend" {
 
 resource "null_resource" "remote-exec-1" {
     connection {
-    user        = "ec2-user"
+    user        = "ubuntu"
     type        = "ssh"
     private_key = "${file(var.pvt_key)}"
     host        = "${aws_instance.backend.public_ip}"
@@ -30,8 +30,8 @@ resource "null_resource" "remote-exec-1" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo yum update",
-      "sudo yum install python sshpass -y",
+      "sudo apt-get update",
+      "sudo apt-get install python sshpass -y",
     ]
   }
 }
@@ -44,7 +44,7 @@ provisioner "local-exec" {
         echo "[jenkins-ci]"| tee -a jenkins-ci.ini;
         export ANSIBLE_HOST_KEY_CHECKING=False;
         echo "${aws_instance.backend.public_ip}" | tee -a jenkins-ci.ini;
-        ansible-playbook -e  sshKey=${var.pvt_key} -i jenkins-ci.ini ./ansible/setup-backend.yaml -u ec2-user -v
+        ansible-playbook -e  sshKey=${var.pvt_key} -i jenkins-ci.ini ./ansible/setup-backend.yaml -u ubuntu -v
     EOT
 }
 }
