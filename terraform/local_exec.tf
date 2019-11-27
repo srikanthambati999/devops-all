@@ -13,7 +13,7 @@ provider "aws" {
   }
 
 resource "aws_instance" "backend" {
-  ami                    = "ami-04763b3055de4860b"
+  ami                    = "ami-00068cd7555f543d5"
   instance_type          = "t2.micro"
   key_name               = "${var.key_name}"
   
@@ -30,8 +30,8 @@ resource "null_resource" "remote-exec-1" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get update",
-      "sudo apt-get install python sshpass -y",
+      "sudo yum update",
+      "sudo yum install python sshpass -y",
     ]
   }
 }
