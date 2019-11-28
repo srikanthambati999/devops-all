@@ -5,12 +5,7 @@ variable "key_name" {
 variable "pvt_key" {
   default = "/home/jen-terra.pem"
 }
-variable "access_key" {
-  default = "AKIAZDHBYI2YXFG4PG7G"
-}
-variable "secret_key" {
-  default = "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"
-}
+
 variable "us-east-zones" {
   default = ["us-east-1a","us-east-1b"]
 }
