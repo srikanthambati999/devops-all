@@ -8,6 +8,7 @@ terraform {
 provider "aws" {
   version = "~> 2.0"
   region  = "us-east-1"
+  profile ="user-2"
   }
 
 resource "aws_instance" "backend" {
