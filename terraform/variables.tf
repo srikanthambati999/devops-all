@@ -1,9 +1,9 @@
 variable "key_name" {
-  default = "jen-ohio"
+  default = "jen-terra"
 }
 
 variable "pvt_key" {
-  default = "/home/ohio.pem"
+  default = "/home/jen-terra.pem"
 }
 
 variable "us-east-zones" {
@@ -11,5 +11,5 @@ variable "us-east-zones" {
 }
 
 variable "sg-id" {
-  default = "sg-052a143868dd86241"
+  default = "sg-0ad33ce61dc97380c"
 }
