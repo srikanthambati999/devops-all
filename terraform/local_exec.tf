@@ -8,7 +8,7 @@ terraform {
 provider "aws" {
   version = "~> 2.0"
   region  = "us-east-1"
-  profile ="user-2"
+  profile ="/home/ec2-user/.aws/user-2"
   }
 
 resource "aws_instance" "backend" {
