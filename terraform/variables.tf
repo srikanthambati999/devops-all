@@ -5,7 +5,12 @@ variable "key_name" {
 variable "pvt_key" {
   default = "/home/jen-terra.pem"
 }
-
+variable "access_key" {
+  default = "/home/acces_key"
+  }
+variable "secret_key" {
+  default = "/home/secret_key"
+  }
 variable "us-east-zones" {
   default = ["us-east-1a","us-east-1b"]
 }
