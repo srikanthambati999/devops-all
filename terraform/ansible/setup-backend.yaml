@@ -35,11 +35,17 @@
 
     - name: Deploy Jenkins Info file
       copy: src=templates/jenkins.html dest={{doc_root}}/jenkins.html
+      
+    - name: add oracle java repository
+      apt_repository: repo='ppa:openjdk-r/ppa'
 
-    - name: Start Java Service 
+    - name: update cache and ignore errors in case of problems
+      apt: update_cache=yes
+      ignore_errors: yes
+
+    - name: Start Java Service
       apt: name=openjdk-8-jdk state=present
-
-  
+ 
     - name: Deploy Custom Info file
       copy: src=templates/atmosphere-v1.jar dest={{doc_root}}/atmosphere-v1.jar
 
