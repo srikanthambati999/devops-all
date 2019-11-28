@@ -9,5 +9,5 @@
   gather_facts: no
   vars_prompt:
   - name: "sshKey"
-    prompt: "Enter ssh key file path: (ignore if local)"
-    default: "/home/st/.ssh/github-personal"
+    prompt: ""
+    default: ""
