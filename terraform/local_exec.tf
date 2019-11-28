@@ -6,9 +6,11 @@ terraform {
 }
 
 provider "aws" {
-  version = "~> 2.0"
+  version = "~> 2.0
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
   region  = "us-east-1"
-  profile ="/home/ec2-user/.aws/user-2"
+ 
   }
 
 resource "aws_instance" "backend" {
