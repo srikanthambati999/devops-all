@@ -6,10 +6,8 @@ terraform {
 }
 
 provider "aws" {
-  shared_credentials_file = "/home/ec2-user/.aws/credentials"
-  profile                 = "terraform"
-  region  = "us-east-1"
   
+   region  = "us-east-1"
   }
 
 resource "aws_instance" "backend" {
